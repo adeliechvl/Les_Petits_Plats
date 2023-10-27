@@ -14,7 +14,6 @@
 <body>
     <header>
         <img src="assets/images/Logo.svg" alt="Les Petits Plats" class="logo">
-        <img src="assets/images/header.svg" alt="Background image" class="backgroundImg">
         <h1>CHERCHEZ PARMI PLUS DE 1500 RECETTES<br>DU QUOTIDIEN,SIMPLES ET DELICIEUSES</h1>
         <div class="search-bar">
             <input type="text" placeholder="Rechercher une recette, un ingrédient, ...">
@@ -23,8 +22,35 @@
             </button>
         </div>
     </header>
-    <main>
 
+    <main>
+        <section id="search-section">
+            <div class="filtres">
+                <form action="">
+                    <label for="ingrédients">Ingrédients</label>
+                    <select name="ingrédients" id="ingrédients">
+                        <option value=""></option>
+                    </select>
+                </form>
+                <form action="">
+                    <label for="appareils">Appareils</label>
+                    <select name="appareils" id="appareils">
+                        <option value=""></option>
+                    </select>
+                </form>
+                <form action="">
+                    <label for="Ustensiles">Ustensiles</label>
+                    <select name="ustensiles" id="ustensiles">
+                        <option value=""></option>
+                    </select>
+                </form>
+            </div>
+            <h2>1500 recettes</h2>
+        </section>
+
+        <section id="cards">
+
+        </section>
     </main>
     <script src="https://kit.fontawesome.com/cb547e51af.js" crossorigin="anonymous"></script>
 </body>
