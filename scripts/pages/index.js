@@ -14,9 +14,13 @@ async function displayRecipe(cards) {
     });
 }
 
+const searchBarButton = document.querySelector('#lancer-recherche');
+
 async function init() {
     const cards = await getRecipe();
-    await displayRecipe(cards);
+    displayRecipe(cards);
+    filterRecipe(cards, searchBarButton);
+
 }
 
 init();
