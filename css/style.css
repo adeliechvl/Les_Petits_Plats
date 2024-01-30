@@ -99,6 +99,7 @@ main {
 
 .filtres {
     display: flex;
+    align-items: flex-start;
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -112,68 +113,115 @@ h2 {
     font-size: 21px;
 }
 
-.select {
+.appareils,
+.ustensiles,
+.ingredients {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: baseline;
+
+}
+
+.btnFiltreIngredients,
+.btnFiltreIngredientsOpen,
+.btnFiltreAppareils,
+.btnFiltreAppareilsOpen,
+.btnFiltreUstensiles,
+.btnFiltreUstensilesOpen {
+    display: flex;
     background-color: white;
-    border-radius: 11px;
+    justify-content: space-between;
+    align-items: center;
     border: transparent;
-    padding-left: 16px;
     width: 168px;
     max-height: 215px;
+    flex-wrap: wrap;
+    padding: 5px;
+    text-overflow: clip;
+    overflow: hidden;
 }
 
-.recherchePar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-radius: 11px;
-    width: 100%;
+.btnFiltreIngredientsOpen,
+.btnFiltreAppareilsOpen,
+.btnFiltreUstensilesOpen {
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
 }
 
-.buttonListDown,
-.buttonListUp {
-    display: flex;
-    border: none;
-    background-color: transparent;
-    align-items: center;
-    margin-right: 10px;
+.btnFiltreIngredients p,
+.btnFiltreAppareils p,
+.btnFiltreUstensiles p {
+    font-size: 16px;
+    color: black;
+    padding-left: 5px;
 }
 
-.buttonListUp {
-    display: none;
+.fa-solid.fa-chevron-up {
+    position: relative;
+    right: 10px;
+}
+
+.fa-solid.fa-chevron-down {
+    position: relative;
+    right: 10px;
 }
 
 .form-select {
     display: flex;
-    border: 2px solid #ededed;
+    align-items: center;
+    justify-content: space-evenly;
     height: 36px;
     margin-bottom: 10px;
-    display: none;
+    background-color: white;
+    padding-left: 5px;
 }
 
 .form-select i {
+    border: none;
     color: grey;
+    background-color: transparent;
+    margin-right: 10px;
+    position: relative;
+    right: 50px;
 }
 
 .form-select input,
-.form-select button {
+.form-select {
     border: none;
     background-color: transparent;
     color: grey;
 }
 
 .form-select input {
-    width: 100px;
+    width: 150px;
     height: 36px;
-    border-radius: 2px;
-    display: none;
+    border: 2px solid #C6C6C6;
 }
 
-.form-select .reset {
-    display: none;
+.listeIngredients,
+.listeAppareils,
+.listeUstensiles {
+    width: 100%;
+    height: 120px;
+}
+
+.listeIngredients:hover,
+.listeAppareils:hover,
+.listeUstensiles:hover {
+    overflow-y: scroll;
+}
+
+.listeIngredients li,
+.listeAppareils li,
+.listeUstensiles li {
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+ul {
+    margin-top: 5px;
+    padding-left: 5px;
 }
 
 /* CARDS */

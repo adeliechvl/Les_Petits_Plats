@@ -18,10 +18,10 @@
         <div class="search-bar">
             <div>
                 <input id="search-bar" type="text" placeholder="Rechercher une recette, un ingrédient, ...">
-                <button type="reset" class="reset">x</button>
-                <button id="lancer-recherche">
+                <div class="reset">x</div>
+                <div id="lancer-recherche">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
+                </div>
             </div>
             <aside class="search-bar-filters"></aside>
         </div>
@@ -30,50 +30,50 @@
     <main>
         <section id="search-section">
             <div class="filtres">
-                <div class="select">
-                    <div class="recherchePar">
+                <div class="ingredients">
+                    <div class="btnFiltreIngredients">
                         <p>Ingrédients</p>
-                        <button class="buttonListDown"><i class="fa-solid fa-chevron-down"></i></button>
-                        <button class="buttonListUp"><i class="fa-solid fa-chevron-up"></i></button>
+                        <i class="fa-solid fa-chevron-down"></i>
+                        <i class="fa-solid fa-chevron-up"></i>
                     </div>
-                    <form action="post" class="form-select">
-                        <input type="text">
-                        <button type="reset" class="reset">x</button>
-                        <button type="submit">
+                    <div class="btnFiltreIngredientsOpen">
+                        <form action="post" class="form-select">
+                            <input type="text" class="inputIngredients">
+                            <i class="fa-solid fa-xmark"></i>
                             <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </form>
-                    <div class="liste"></div>
+                        </form>
+                        <div class="listeIngredients"></div>
+                    </div>
                 </div>
-                <div class="select">
-                    <div class="recherchePar">
+                <div class="appareils">
+                    <div class="btnFiltreAppareils">
                         <p>Appareils</p>
-                        <button class="buttonListDown"><i class="fa-solid fa-chevron-down"></i></button>
-                        <button class="buttonListUp"><i class="fa-solid fa-chevron-up"></i></button>
+                        <i class="fa-solid fa-chevron-down"></i>
+                        <i class="fa-solid fa-chevron-up"></i>
                     </div>
-                    <form action="post" class="form-select">
-                        <input type="text">
-                        <button type="reset" class="reset">x</button>
-                        <button type="submit">
+                    <div class="btnFiltreAppareilsOpen">
+                        <form action="post" class="form-select">
+                            <input type="text" class="inputAppareils">
+                            <i class="fa-solid fa-xmark"></i>
                             <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </form>
-                    <div class="liste"></div>
+                        </form>
+                        <div class="listeAppareils"></div>
+                    </div>
                 </div>
-                <div class="select">
-                    <div class="recherchePar">
+                <div class="ustensiles">
+                    <div class="btnFiltreUstensiles">
                         <p>Ustensiles</p>
-                        <button class="buttonListDown"><i class="fa-solid fa-chevron-down"></i></button>
-                        <button class="buttonListUp"><i class="fa-solid fa-chevron-up"></i></button>
+                        <i class="fa-solid fa-chevron-down"></i>
+                        <i class="fa-solid fa-chevron-up"></i>
                     </div>
-                    <form action="post" class="form-select">
-                        <input type="text">
-                        <button type="reset" class="reset">x</button>
-                        <button type="submit">
+                    <div class="btnFiltreUstensilesOpen">
+                        <form action="post" class="form-select">
+                            <input type="text" class="inputUstensiles">
+                            <i class="fa-solid fa-xmark"></i>
                             <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </form>
-                    <div class="liste"></div>
+                        </form>
+                        <div class="listeUstensiles"></div>
+                    </div>
                 </div>
             </div>
             <div class="nbRecettes">
@@ -90,6 +90,7 @@
     <script src="/scripts/pages/index.js"></script>
     <script src="/scripts/factories/cards.js"></script>
     <script src="/scripts/utils/searchBar.js"></script>
+    <script src="/scripts/utils/filters.js"></script>
     <script src="/data/recipes.json"></script>
 </body>
 
