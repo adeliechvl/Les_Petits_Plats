@@ -19,13 +19,13 @@ function cardsTemplate(data) {
         img.setAttribute("alt", name);
         temps.setAttribute("class", "temps");
         recette.setAttribute("class", "recette");
-        
+
         temps.innerText = `${time}min`;
         nom.innerText = name;
         recetteh3.innerText = "RECETTE";
         recetteDescription.innerText = description;
         ingrh3.innerText = "INGREDIENTS";
- 
+
         article.appendChild(img);
         article.appendChild(temps);
         article.appendChild(recette);
@@ -34,6 +34,8 @@ function cardsTemplate(data) {
         recette.appendChild(recetteDescription)
         recette.appendChild(ingrh3);
         recette.appendChild(listeIngr);
+
+        
 
         ingredients.forEach(ingredient => {
             const infosIngr = document.createElement('ul');
@@ -50,22 +52,26 @@ function cardsTemplate(data) {
             unit.setAttribute("class", "unit");
 
             ingr.innerText = ingredient.ingredient;
-            quantity.innerText = ingredient.quantity;
-            unit.innerText = ingredient.unit;
 
-            if (unit.innerText == 'undefined') {
-                return "";
-            } else {
-                unit.innerText = ingredient.unit;
-            }
-            
+
             listeIngr.appendChild(infosIngr);
             infosIngr.appendChild(ingr);
             infosIngr.appendChild(mesures);
-            mesures.appendChild(quantity);
-            mesures.appendChild(unit);
+
+            if (ingredient.quantity) {
+                quantity.innerText = ingredient.quantity;
+                mesures.appendChild(quantity);
+                
+            }
+
+            if (ingredient.unit) {
+                unit.innerText = ingredient.unit;
+                mesures.appendChild(unit);
+            }
+
+
         });
-       
+
         return (article);
     }
 

@@ -1,5 +1,7 @@
 //event to dropdown filters and display input and the list corresponding its filters
 const dropdown = (cards) => {
+
+    // all elements from the 3 different filters : ingredients, appliance and ustensiles
     const btnFiltreIngredients = document.querySelector(".btnFiltreIngredients");
     const btnFiltreAppareils = document.querySelector(".btnFiltreAppareils");
     const btnFiltreUstensiles = document.querySelector(".btnFiltreUstensiles");
@@ -23,7 +25,11 @@ const dropdown = (cards) => {
     const formAppareils = btnFiltreAppareilsOpen.querySelector(".form-select");
     const formUstensiles = btnFiltreUstensilesOpen.querySelector(".form-select");
 
-    //display before click event
+    const inputIngredients = btnFiltreIngredientsOpen.querySelector(".inputIngredients");
+    const inputAppareils = btnFiltreAppareilsOpen.querySelector(".inputAppareils");
+    const inputUstensiles = btnFiltreUstensilesOpen.querySelector(".inputUstensiles");
+
+    // display before click event
     formIngredients.style.display = "none";
     formAppareils.style.display = "none";
     formUstensiles.style.display = "none";
@@ -47,7 +53,7 @@ const dropdown = (cards) => {
 
     listeIngredients.appendChild(list);
 
-    //event for Ingredients button
+    // event for Ingredients button
     btnFiltreIngredients.addEventListener("click", function () {
         btnFiltreIngredients.clicked = !btnFiltreIngredients.clicked;
 
@@ -72,7 +78,7 @@ const dropdown = (cards) => {
         }
     });
 
-    //event for Appliances button
+    // event for Appliances button
     btnFiltreAppareils.addEventListener("click", function () {
         btnFiltreAppareils.clicked = !btnFiltreAppareils.clicked;
 
@@ -96,7 +102,7 @@ const dropdown = (cards) => {
         }
     });
 
-    //event for Utensils button
+    // event for Ustensils button
     btnFiltreUstensiles.addEventListener("click", function () {
         btnFiltreUstensiles.clicked = !btnFiltreUstensiles.clicked;
 
@@ -118,5 +124,28 @@ const dropdown = (cards) => {
             btnFiltreUstensiles.style.borderBottomLeftRadius = "11px";
             btnFiltreUstensiles.style.borderBottomRightRadius = "11px";
         }
+    });
+
+
+    // keyup events in filters inputs to display chosen item + alphabetically ordered
+    inputIngredients.addEventListener("keyup", (e) => {
+        let resultIngredients = generateFilters(cards).ingredients.sort();
+        const query = e.target.value.toLowerCase();
+        resultIngredients = resultIngredients.filter(ingredient => ingredient.toLowerCase().includes(query));
+        displayListIngredients(resultIngredients);
+    });
+
+    inputAppareils.addEventListener("keyup", (e) => {
+        let resultAppareils = generateFilters(cards).appliance.sort();
+        const query = e.target.value.toLowerCase();
+        resultAppareils = resultAppareils.filter(appliance => appliance.toLowerCase().includes(query));
+        displayListAppareils(resultAppareils);
+    });
+
+    inputUstensiles.addEventListener("keyup", (e) => {
+        let resultUstensiles = generateFilters(cards).ustensils.sort();
+        const query = e.target.value.toLowerCase();
+        resultUstensiles = resultUstensiles.filter(ustensile => ustensile.toLowerCase().includes(query));
+        displayListUstensiles(resultUstensiles);
     });
 }

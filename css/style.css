@@ -219,9 +219,38 @@ h2 {
     line-height: 20px;
 }
 
+.listeIngredients li:hover,
+.listeAppareils li:hover,
+.listeUstensiles li:hover {
+    background-color: #FFD15B;
+}
+
 ul {
     margin-top: 5px;
     padding-left: 5px;
+    width: 168px;
+}
+
+.tagsSectionIngredients,
+.tagsSectionAppareils,
+.tagsSectionUstensiles {
+    position: relative;
+    right: 5px;
+}
+
+.tagsSectionIngredients p,
+.tagsSectionAppareils p,
+.tagsSectionUstensiles p {
+    display: flex;
+    align-items: center;
+    background-color: #FFD15B;
+    width: 178px;
+    height: 30px;
+    font-size: 14px;
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+    padding-left: 10px;
+    margin: 2px 0 2px;
 }
 
 /* CARDS */
