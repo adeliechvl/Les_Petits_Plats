@@ -44,7 +44,14 @@ h1 {
     padding-left: 35px;
 }
 
+.search-bar input::-webkit-search-cancel-button {
+    position: relative;
+    right: 80px;
+}
+
 #lancer-recherche {
+    display: flex;
+    justify-content: flex-end;
     background-color: #1B1B1B;
     border: transparent;
     border-radius: 10px;
@@ -72,14 +79,12 @@ h1 {
     color: black;
 }
 
-.search-bar .reset {
-    font-size: 24px;
-    background-color: transparent;
-    border: none;
-    color: gray;
-    position: relative;
-    right: 100px;
-    display: none;
+header .error {
+    margin: 20px 270px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
 }
 
 /* MAIN */
@@ -107,6 +112,7 @@ main {
     gap: 50px;
 }
 
+.nbRecettes,
 h2 {
     font-family: 'Anton', sans-serif;
     font-weight: 400;
@@ -147,10 +153,11 @@ h2 {
     border-bottom-right-radius: 11px;
 }
 
-.btnFiltreIngredients p,
-.btnFiltreAppareils p,
-.btnFiltreUstensiles p {
+.btnFiltreIngredients h3,
+.btnFiltreAppareils h3,
+.btnFiltreUstensiles h3 {
     font-size: 16px;
+    font-weight: 500;
     color: black;
     padding-left: 5px;
 }
@@ -181,20 +188,25 @@ h2 {
     background-color: transparent;
     margin-right: 10px;
     position: relative;
-    right: 50px;
+    right: 30px;
 }
 
 .form-select input,
 .form-select {
-    border: none;
     background-color: transparent;
     color: grey;
 }
 
 .form-select input {
-    width: 150px;
+    width: 160px;
     height: 36px;
     border: 2px solid #C6C6C6;
+}
+
+input::-webkit-search-cancel-button {
+    position: relative;
+    right: 30px;
+    background: black;
 }
 
 .listeIngredients,
@@ -242,16 +254,21 @@ ul {
 .tagsSectionAppareils p,
 .tagsSectionUstensiles p {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: #FFD15B;
-    width: 178px;
+    width: 148px;
     height: 30px;
     font-size: 14px;
     font-family: "Manrope", sans-serif;
     font-weight: 400;
-    padding-left: 10px;
+    padding: 0 20px 0 10px;
     margin: 2px 0 2px;
 }
+
+.tagsSectionIngredients i,
+.tagsSectionAppareils i,
+.tagsSectionUstensiles i {}
 
 /* CARDS */
 

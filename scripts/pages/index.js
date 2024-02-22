@@ -6,7 +6,7 @@ async function getRecipe() {
 }
 
 // display recipes into cards via template
-async function displayRecipe(cards) {
+async function displayRecipes(cards) {
     const cardsSection = document.querySelector("#cards");
     cardsSection.innerHTML = "";
 
@@ -15,6 +15,10 @@ async function displayRecipe(cards) {
         const userCardDOM = cardsModel.getCardsDom();
         cardsSection.appendChild(userCardDOM);
     });
+
+    // number of recipes displayed update depending on research
+    let nbRecipes = document.querySelector(".nbRecettes");
+    nbRecipes.innerHTML = cards.length + " recettes";
 }
 
 const searchBarButton = document.querySelector('#lancer-recherche');
@@ -56,8 +60,6 @@ let tagsIngredients = [];
 let tagsAppareils = [];
 let tagsUstensiles = [];
 
-
-
 // display list for ingredients
 function displayListIngredients(resultIngredients) {
     const listeIngredients = document.querySelector(".listeIngredients");
@@ -72,19 +74,27 @@ function displayListIngredients(resultIngredients) {
                 return;
             }
             let pIngredients = document.createElement("p");
+            pIngredients.id = ingredient;
             tagsIngredients.push(ingredient);
+
+            // remove tag ingredient
+            const removeIngredient = document.createElement("i");
+            removeIngredient.setAttribute("class", "fa-solid fa-xmark");
             pIngredients.innerHTML = ingredient;
+            pIngredients.appendChild(removeIngredient);
+
+            removeIngredient.addEventListener("click", () => {
+                pIngredients.remove();
+                tagsIngredients = tagsIngredients.filter(tIngredient => tIngredient !== ingredient);
+
+                researchRecipesWithTags();
+            });
+
             tagsSectionIngredients.appendChild(pIngredients);
 
             researchRecipesWithTags();
-
-            //const reset = document.createElement = ("i");
-            //reset.setAttribute("class", "fa-solid fa-xmark");
-            //tagsSectionIngredients.appendChild(reset);
-
         });
     });
-
     listeIngredients.appendChild(ulIngredients);
 }
 
@@ -104,6 +114,20 @@ function displayListAppareils(resultAppareils) {
             let pAppareils = document.createElement("p");
             tagsAppareils.push(appliance);
             pAppareils.innerHTML = appliance;
+
+            // remove tag appliance
+            const removeAppliance = document.createElement("i");
+            removeAppliance.setAttribute("class", "fa-solid fa-xmark");
+            pAppareils.innerHTML = appliance;
+            pAppareils.appendChild(removeAppliance);
+
+            removeAppliance.addEventListener("click", () => {
+                pAppareils.remove();
+                tagsAppareils = tagsAppareils.filter(tAppareils => tAppareils !== tAppareils);
+
+                researchRecipesWithTags();
+            });
+
             tagsSectionAppareils.appendChild(pAppareils);
 
             researchRecipesWithTags();
@@ -128,7 +152,19 @@ function displayListUstensiles(resultUstensiles) {
             }
             let pUstensiles = document.createElement("p");
             tagsUstensiles.push(ustensils);
+
+            // remove tag ustensile
+            const removeUstensile = document.createElement("i");
+            removeUstensile.setAttribute("class", "fa-solid fa-xmark");
             pUstensiles.innerHTML = ustensils;
+            pUstensiles.appendChild(removeUstensile);
+
+            removeUstensile.addEventListener("click", () => {
+                pUstensiles.remove();
+                tagsUstensiles = tagsUstensiles.filter(tUstensiles => tUstensiles !== tUstensiles);
+
+                researchRecipesWithTags();
+            });
             tagsSectionUstensiles.appendChild(pUstensiles);
 
             researchRecipesWithTags();
@@ -142,7 +178,7 @@ let cards = [];
 
 async function init() {
     cards = await getRecipe();
-    displayRecipe(cards);
+    displayRecipes(cards);
     filterRecipe(cards, searchBarButton);
 
     let resultIngredients = generateFilters(cards).ingredients.sort();
