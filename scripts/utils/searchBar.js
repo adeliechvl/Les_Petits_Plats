@@ -12,16 +12,27 @@ const filterRecipe = (cards, searchBarButton) => {
     searchBarButton.addEventListener("click", () => {
         const searchBar = document.querySelector("#search-bar");
         if (searchBar.value.length >= 3) {
+            const results = [];
             cardsSection.innerHTML = "";
             const query = searchBar.value.toLowerCase();
-            const results = cards.filter((card) => {
-                return (
-                    card.name.toLowerCase().startsWith(query)
-                    || card.description.toLowerCase().includes(query)
-                    || card.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(query))
-                );
-            });
-            displayRecipes(results);
+
+            // --> filter changed 
+            for (let i = 0; i < cards.length; i++) {
+				const { name, ingredients, description } = cards[i];
+				const includedInName = name.toLowerCase().includes(query);
+				const includedInDescription = description.toLowerCase().includes(query);
+				let includedInIngredients = false;
+
+				for (let y = 0; y < ingredients.length; y++)
+					if (ingredients[y].ingredient.toLowerCase().includes(query)) {
+						includedInIngredients = true;
+					}
+
+				if (includedInName || includedInDescription || includedInIngredients) {
+					results.push(cards[i]);
+					cardsSection.innerHTML = "";
+					displayRecipes(results)
+				}}
 
             if (!results.length) {
                 error.style.display = "block";
