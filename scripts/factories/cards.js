@@ -4,7 +4,6 @@ function cardsTemplate(data) {
     const picture = `assets/images/${image}`;
 
     function getCardsDom() {
-
         const article = document.createElement('article');
         const img = document.createElement('img');
         const temps = document.createElement('h3');
@@ -35,8 +34,6 @@ function cardsTemplate(data) {
         recette.appendChild(ingrh3);
         recette.appendChild(listeIngr);
 
-        
-
         ingredients.forEach(ingredient => {
             const infosIngr = document.createElement('ul');
             const ingr = document.createElement('li');
@@ -53,7 +50,6 @@ function cardsTemplate(data) {
 
             ingr.innerText = ingredient.ingredient;
 
-
             listeIngr.appendChild(infosIngr);
             infosIngr.appendChild(ingr);
             infosIngr.appendChild(mesures);
@@ -61,19 +57,14 @@ function cardsTemplate(data) {
             if (ingredient.quantity) {
                 quantity.innerText = ingredient.quantity;
                 mesures.appendChild(quantity);
-                
             }
 
             if (ingredient.unit) {
                 unit.innerText = ingredient.unit;
                 mesures.appendChild(unit);
             }
-
-
         });
-
         return (article);
     }
-
     return { id, image, name, servings, ingredients, ingredient, quantity, unit, time, description, appliance, ustensils, getCardsDom }
 }

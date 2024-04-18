@@ -66,7 +66,6 @@ const dropdown = (cards) => {
             btnFiltreIngredients.style.borderBottomLeftRadius = "0";
             btnFiltreIngredients.style.borderBottomRightRadius = "0";
 
-
         } else {
             chevronIngredientsOpen.style.display = "none";
             chevronIngredientsClosed.style.display = "block";
